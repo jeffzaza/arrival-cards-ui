@@ -14,8 +14,8 @@ import { FormsModule } from '@angular/forms';
 export class Create {
   card: ArrivalCard = {
     name: '',
-    id: '',
-    date: ''
+    id_number: '',
+    arrival_date: ''
   };
 
   constructor(private api: ArrivalCardAPI) {}

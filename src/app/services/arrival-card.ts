@@ -4,8 +4,8 @@ import { Observable } from 'rxjs';
 
 export interface ArrivalCard {
   name: string;
-  id: string;
-  date: string;
+  id_number: string;
+  arrival_date: string;
 }
 
 @Injectable({
@@ -21,7 +21,7 @@ export class ArrivalCardAPI {
   }
 
   list(): Observable<ArrivalCard[]> {
-    return this.http.get<ArrivalCard[]>(`${this.baseUrl}/arrival-card`);
+    return this.http.get<ArrivalCard[]>(`${this.baseUrl}/arrival-cards`);
   }
 
   delete(id: string): Observable<any> {
