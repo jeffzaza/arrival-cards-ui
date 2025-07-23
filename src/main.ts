@@ -6,6 +6,6 @@ bootstrapApplication(App, appConfig)
   .catch((err) => console.error(err));
 
 import { Amplify } from 'aws-amplify';
-import awsExports from './aws-exports';
-Amplify.configure(awsExports);
+//import awsExports from './aws-exports';
+//Amplify.configure(awsExports);
 

@@ -3,6 +3,8 @@ import { ArrivalCardAPI, ArrivalCard } from '../../services/arrival-card';
 
 @Component({
   standalone: true,
+  templateUrl: './manage.html',
+  styleUrls: ['./manage.css'],
   selector: 'app-manage',
 })
 export class Manage implements OnInit {

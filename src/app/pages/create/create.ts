@@ -3,6 +3,8 @@ import { ArrivalCardAPI, ArrivalCard } from '../../services/arrival-card';
 
 @Component({
   standalone: true,
+  templateUrl: './create.html',
+  styleUrls: ['./create.css'],
   selector: 'app-create',
 })
 export class Create {
