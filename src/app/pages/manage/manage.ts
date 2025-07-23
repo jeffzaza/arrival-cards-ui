@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+
 import { ArrivalCardAPI, ArrivalCard } from '../../services/arrival-card';
 
 @Component({
   standalone: true,
   templateUrl: './manage.html',
   styleUrls: ['./manage.css'],
+  imports: [CommonModule, FormsModule],
   selector: 'app-manage',
 })
 export class Manage implements OnInit {
@@ -23,7 +28,7 @@ export class Manage implements OnInit {
     });
   }
 
-  remove(id: string) {
+  delete(id: string) {
     this.api.delete(id).subscribe({
       next: () => this.load(),
       error: err => alert('Delete failed: ' + err.message)
