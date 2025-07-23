@@ -1,24 +1,23 @@
 import { Component } from '@angular/core';
-import { ArrivalCardService, ArrivalCard } from '../../services/arrival-card.service';
+import { ArrivalCardAPI, ArrivalCard } from '../../services/arrival-card';
 
 @Component({
+  standalone: true,
   selector: 'app-create',
-  templateUrl: './create.component.html',
 })
-export class CreateComponent {
+export class Create {
   card: ArrivalCard = {
     name: '',
     id: '',
-    date: '',
+    date: ''
   };
 
-  constructor(private cardService: ArrivalCardService) {}
+  constructor(private api: ArrivalCardAPI) {}
 
   submit() {
-    this.cardService.createCard(this.card).subscribe({
+    this.api.create(this.card).subscribe({
       next: () => alert('Card submitted successfully'),
-      error: (err) => alert('Failed to submit: ' + err.message),
+      error: err => alert('Submission failed: ' + err.message)
     });
   }
 }
-

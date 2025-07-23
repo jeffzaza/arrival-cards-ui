@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface ArrivalCard {
@@ -9,23 +9,22 @@ export interface ArrivalCard {
 }
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-export class ArrivalCardService {
+export class ArrivalCardAPI {
   private baseUrl = 'http://arrival-cards-alb-1022548571.ap-southeast-1.elb.amazonaws.com';
 
   constructor(private http: HttpClient) {}
 
-  createCard(card: ArrivalCard): Observable<any> {
+  create(card: ArrivalCard): Observable<any> {
     return this.http.post(`${this.baseUrl}/arrival-card`, card);
   }
 
-  getAllCards(): Observable<ArrivalCard[]> {
+  list(): Observable<ArrivalCard[]> {
     return this.http.get<ArrivalCard[]>(`${this.baseUrl}/arrival-card`);
   }
 
-  deleteCard(id: string): Observable<any> {
+  delete(id: string): Observable<any> {
     return this.http.delete(`${this.baseUrl}/arrival-card/${id}`);
   }
 }
-

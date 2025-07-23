@@ -1,34 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { ArrivalCardService, ArrivalCard } from '../../services/arrival-card.service';
+import { ArrivalCardAPI, ArrivalCard } from '../../services/arrival-card';
 
 @Component({
+  standalone: true,
   selector: 'app-manage',
-  templateUrl: './manage.component.html',
 })
-export class ManageComponent implements OnInit {
+export class Manage implements OnInit {
   cards: ArrivalCard[] = [];
 
-  constructor(private cardService: ArrivalCardService) {}
+  constructor(private api: ArrivalCardAPI) {}
 
   ngOnInit() {
-    this.loadCards();
+    this.load();
   }
 
-  loadCards() {
-    this.cardService.getAllCards().subscribe({
-      next: (data) => (this.cards = data),
-      error: (err) => alert('Failed to load cards: ' + err.message),
+  load() {
+    this.api.list().subscribe({
+      next: data => this.cards = data,
+      error: err => alert('Load failed: ' + err.message)
     });
   }
 
-  delete(id: string) {
-    this.cardService.deleteCard(id).subscribe({
-      next: () => {
-        alert('Deleted successfully');
-        this.loadCards(); // refresh list
-      },
-      error: (err) => alert('Failed to delete: ' + err.message),
+  remove(id: string) {
+    this.api.delete(id).subscribe({
+      next: () => this.load(),
+      error: err => alert('Delete failed: ' + err.message)
     });
   }
 }
-
