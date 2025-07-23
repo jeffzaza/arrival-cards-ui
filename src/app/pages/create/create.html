@@ -1,0 +1,13 @@
+<form (ngSubmit)="submit()">
+  <label>
+    Name: <input [(ngModel)]="card.name" name="name" required />
+  </label><br />
+  <label>
+    ID Number: <input [(ngModel)]="card.id" name="id" required />
+  </label><br />
+  <label>
+    Arrival Date: <input [(ngModel)]="card.date" name="date" type="date" required />
+  </label><br />
+  <button type="submit">Submit</button>
+</form>
+
