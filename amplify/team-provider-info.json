@@ -10,6 +10,14 @@
       "StackName": "amplify-arrivalcardsui-dev-d6ebe",
       "StackId": "arn:aws:cloudformation:ap-southeast-1:492815614584:stack/amplify-arrivalcardsui-dev-d6ebe/94dc4bb0-67a7-11f0-abb8-06bb07ccc0c5",
       "AmplifyAppId": "d86tjlab2eiv8"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d86tjlab2eiv8",
+          "type": "manual"
+        }
+      }
     }
   }
 }
